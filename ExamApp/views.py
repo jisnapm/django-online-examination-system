@@ -1,0 +1,22 @@
+from django.shortcuts import render
+from rest_framework.views import APIView
+from rest_framework.response import Response
+from ExamApp.models import QuestionDb
+from ExamApp.serializers import QuestionSerializer
+
+# Create your views here.
+class QuestionListCreate(APIView):
+    def get(self, request):
+        qs = QuestionDb.objects.all()
+        serializer_instance = QuestionSerializer(qs, many=True)
+        return Response(data = serializer_instance.data)
+
+    def post(self, request):
+        form_data = request.data
+        s_instance = QuestionSerializer(data=form_data)
+        if s_instance.is_valid():
+            actual_data = s_instance.validated_data
+            QuestionDb.objects.create(**actual_data)
+            return Response(data = {"message": "Question created successfully"})
+        else:
+            return Response(data = s_instance.errors)

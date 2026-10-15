@@ -1,0 +1,16 @@
+###
+GET http://127.0.0.1:8000/questions/
+Accept: application/json
+
+###
+POST http://127.0.0.1:8000/questions/
+Content-Type: application/json
+
+{
+    "question": "What is the data type of 10 / 2 in Python?",
+    "option_a": "int",
+    "option_b": "str",
+    "option_c": "float",
+    "option_d": "bool",
+    "correct_answer": "option_c"
+}
