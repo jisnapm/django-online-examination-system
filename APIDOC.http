@@ -16,7 +16,7 @@ Content-Type: application/json
 }
 
 ###
-GET http://127.0.0.1:8000/questions/4/
+GET http://127.0.0.1:8000/questions/6/
 Accept: application/json
 
 ###
@@ -31,3 +31,7 @@ Content-Type: application/json
     "option_d": "Python",
     "correct_answer": "option_a"
 }
+
+###
+DELETE http://127.0.0.1:8000/questions/6/
+Accept: application/json

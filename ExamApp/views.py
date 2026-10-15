@@ -37,4 +37,6 @@ class QuestionRetreiveUpdateDelete(APIView):
         else:
             return Response(data= s_instance.errors)
 
-        
+    def delete(self, request, pk):
+        QuestionDb.objects.filter(id = pk).delete()
+        return Response(data= {"message": "Question Deleted!"})
