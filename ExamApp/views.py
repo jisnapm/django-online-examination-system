@@ -20,3 +20,11 @@ class QuestionListCreate(APIView):
             return Response(data = {"message": "Question created successfully"})
         else:
             return Response(data = s_instance.errors)
+
+class QuestionRetreiveUpdateDelete(APIView):
+    def get(self, request, pk):
+        qs = QuestionDb.objects.get(id = pk)
+        serializer_instance = QuestionSerializer(qs)
+        return Response(data = serializer_instance.data)
+
+    

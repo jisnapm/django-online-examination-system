@@ -21,4 +21,5 @@ from ExamApp import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('questions/', views.QuestionListCreate.as_view()),
+    path('questions/<int:pk>/', views.QuestionRetreiveUpdateDelete.as_view()),
 ]

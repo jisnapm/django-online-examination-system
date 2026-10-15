@@ -14,3 +14,8 @@ Content-Type: application/json
     "option_d": "bool",
     "correct_answer": "option_c"
 }
+
+###
+GET http://127.0.0.1:8000/questions/1/
+Accept: application/json
+
