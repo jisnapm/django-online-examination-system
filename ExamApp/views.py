@@ -27,4 +27,14 @@ class QuestionRetreiveUpdateDelete(APIView):
         serializer_instance = QuestionSerializer(qs)
         return Response(data = serializer_instance.data)
 
-    
+    def put(self, request, pk):
+        form_data = request.data
+        s_instance = QuestionSerializer(data= form_data)
+        if s_instance.is_valid():
+            actual_data = s_instance.validated_data
+            QuestionDb.objects.filter(id = pk).update(**actual_data)
+            return Response(data = s_instance.data)
+        else:
+            return Response(data= s_instance.errors)
+
+        

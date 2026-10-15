@@ -16,6 +16,18 @@ Content-Type: application/json
 }
 
 ###
-GET http://127.0.0.1:8000/questions/1/
+GET http://127.0.0.1:8000/questions/4/
 Accept: application/json
 
+###
+PUT http://127.0.0.1:8000/questions/5/
+Content-Type: application/json
+
+{
+    "question": "What is the output of 'Python'[0]?",
+    "option_a": "P",
+    "option_b": "y",
+    "option_c": "n",
+    "option_d": "Python",
+    "correct_answer": "option_a"
+}
